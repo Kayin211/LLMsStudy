@@ -18,7 +18,7 @@ github：https://github.com/eladlev/autoprompt
 
 IPC整体系统架构如图，该系统主要由 Dataset、Estimator、Evaluator、Optimizer 四部分组成。
 
-![]()
+![](https://github.com/Kayin211/LLMsStudy/blob/master/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/pic/IPC%20%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png)
 
 Dataset 负责管理数据集，执行数据的插入、修改、删除和应用函数等操作，并进行数据清洗以去除语义重复和进行语义抽样。
 Estimator 负责估计一批样本，它实现了两种估计器：人类注释和大型语言模型（LLM）估计。支持 Argilla UI 进行人类注释，以及使用 Langchain 集成的LLM。
@@ -27,7 +27,7 @@ Optimizer 负责管理整个优化过程，执行迭代步骤，并负责停止�
 
 IPC系统具体实现流程图：
 
-![]()
+![](https://github.com/Kayin211/LLMsStudy/blob/master/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/pic/IPC%20%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
 
 作者从初始的 prompt 和任务描述 description 开始，用户还可以在少量样本的设置中提供一些示例，然后，在校准优化过程中，系统会迭代执行以下步骤：
 
@@ -37,7 +37,7 @@ IPC系统具体实现流程图：
 
 本文 IPC 系统的基线配置针对分类任务进行了优化，将准确度被设定为评分函数，并通过混淆矩阵和提示错误分类进行错误分析。
 
-![]()
+![](https://github.com/Kayin211/LLMsStudy/blob/master/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/pic/IPC%20example.png)
 
 在每次迭代中，根据当前提示生成新的样本，利用这些样本的误分类来细化提示，直到它能够校准到用户的意图。
 
@@ -46,7 +46,7 @@ IPC系统具体实现流程图：
 
 作者使用 IMDB 评论数据集作为实验的基础数据，评估三个二元分类任务的即时校准过程：(1) Spoiler detection, (2) Sentiment analysis, and (3) Parental Guidance (PG) detection.
 
-![]()
+![](https://github.com/Kayin211/LLMsStudy/blob/master/%E8%AE%BA%E6%96%87%E8%A7%A3%E8%AF%BB/pic/IPC%20result.png)
 
 ## 5.其他
 
